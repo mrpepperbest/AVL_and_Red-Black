@@ -13,8 +13,15 @@ private:
 public:
     AVL(const int first){head=new Node(first); size=1;}; //init with first key
     AVL(){head=nullptr;size=0;}; //empty init
-    ~AVL(){head=delete_n (head);}; //destructor
-    Node* show_data(){return head;};
+    ~AVL(){del(head);}; //destructor
+    //info funcs
+    Node* const show_data(){return head;}; //data
+    bool const search(const int a){ //is element here?
+        return AVL_TREE_NODE_H::search(head,a);
+    };
+    unsigned int amount(){ //writing an amount of nodes
+        return size;
+    };
     //controlling tree keys
     void insert(const int a){//inserting num
         head=AVL_TREE_NODE_H::insert(head,a);
@@ -27,18 +34,20 @@ public:
         size+=a.size();
     }
     void remove_element(const int a){//removing num
+        if(::search(head, a)){
+            size--;
+        }
         head = AVL_TREE_NODE_H::remove(head,a);
-        size--;
     }
     void remove_element(const vector<int> a){//removing mass
         for(unsigned int i=0;i<a.size();++i) {
+            if(::search(head, a[i])){
+                size--;
+            }
             head = AVL_TREE_NODE_H::remove(head, a[i]);
         }
-        size-=a.size();
     }
-    unsigned int amount(){
-        return size;
-    };
+
     AVL &operator =(const AVL& a){
         this->head=a.head;
         this->size=a.size;
@@ -58,7 +67,7 @@ public:
     };
 };
 
-ostream& operator<<(ostream& os,AVL& a){
+ostream& operator <<(ostream& os,AVL& a){
     if(a.show_data()==nullptr)
     {
         os<< "empty";

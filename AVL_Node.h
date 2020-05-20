@@ -9,9 +9,29 @@ struct Node {
     Node *left, *right;
     unsigned int height;
     Node(int key) { this->key = key; left = nullptr; right = nullptr; height = 1; };
-    Node(const Node &a){this->key=a.key;this->left=a.left;this->right=a.right;this->height=a.height;};
+    Node* copy_tree(Node* a){//copying tree
+        if(a==nullptr)return nullptr;
+        Node*b = new Node(a->key);
+        b->left=copy_tree(a->left);
+        b->right=copy_tree(a->right);
+        return b;
+    };
+    Node(const Node &a){this->key=a.key;this->left=copy_tree(a.left);this->right=copy_tree(a.right);this->height=a.height;};
+    ~Node(){};
 };
 //Finding out Node info
+bool const search(Node* a, const int b){
+    if(a==nullptr){
+        return false;
+    }
+    if(b<a->key){
+        return search(a->left, b);
+    }
+    else if(b>a->key){
+        return search(a->right,b);
+    }
+    return true;
+}
 unsigned int get_height(Node* a){
     if(a==nullptr){
         return 0;
@@ -124,7 +144,7 @@ Node* remove(Node* a, const int b){//deleting element
         }
         a=find_min(right);
         if(a!=nullptr) {
-            remove_min(right);
+            right=remove_min(right);
             a->right=right;
             a->left=left;
             a = balance(a);
@@ -135,16 +155,14 @@ Node* remove(Node* a, const int b){//deleting element
    a = balance(a);
     return a;
 }
-Node* delete_n(Node* a){
-    if(a!=nullptr){
-        if(a!=nullptr)
-        a->right=delete_n(a->right);
-        if(a!=nullptr)
-        a->left=delete_n(a->left);
-        delete a;
-        a=nullptr;
-    }
-    return nullptr;
+//destructor
+void del(Node*& a){
+   if(a!=nullptr){
+       del(a->left);
+       del(a->right);
+       delete a;
+       a=nullptr;
+   }
 }
 //operators
 ostream& operator<<(ostream &os, const Node& a){

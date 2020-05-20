@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/mark/programming/AVL_and_Red-Black/AVL.h
+/home/mark/programming/minetrees/AVL.h
 iostream
 -
 AVL_Node.h
-/home/mark/programming/AVL_and_Red-Black/AVL_Node.h
+/home/mark/programming/minetrees/AVL_Node.h
 vector
 -
 algorithm
 -
 
-/home/mark/programming/AVL_and_Red-Black/AVL_Node.h
+/home/mark/programming/minetrees/AVL_Node.h
 iostream
 -
 
-/home/mark/programming/AVL_and_Red-Black/Red_Black_Tree.h
+/home/mark/programming/minetrees/Red_Black_Tree.h
 iostream
 -
 iostream
@@ -40,13 +40,13 @@ vector
 algorithm
 -
 
-/home/mark/programming/AVL_and_Red-Black/main.cpp
+/home/mark/programming/minetrees/main.cpp
 iostream
 -
 AVL.h
-/home/mark/programming/AVL_and_Red-Black/AVL.h
+/home/mark/programming/minetrees/AVL.h
 Red_Black_Tree.h
-/home/mark/programming/AVL_and_Red-Black/Red_Black_Tree.h
+/home/mark/programming/minetrees/Red_Black_Tree.h
 iostream
 -
 cstdio

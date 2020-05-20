@@ -32,5 +32,9 @@ AVL a;
     a.remove_element({1,2,322});
     cout<< a << endl;
     cout<< a.amount()<<endl;
+    cout<<"looking for 1"<<endl;
+    cout<<a.search(1)<<endl;
+    cout<<"looking for 228"<<endl;
+    cout<<a.search(228)<<endl;
 return 0;
 }
