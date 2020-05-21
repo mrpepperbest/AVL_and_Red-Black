@@ -11,13 +11,31 @@ iostream
 -
 AVL_Node.h
 /home/mark/programming/minetrees/AVL_Node.h
+iostream
+-
+memory
+-
 vector
+-
+functional
+-
+utility
 -
 algorithm
 -
 
 /home/mark/programming/minetrees/AVL_Node.h
 iostream
+-
+memory
+-
+vector
+-
+functional
+-
+utility
+-
+algorithm
 -
 
 /home/mark/programming/minetrees/Red_Black_Tree.h
@@ -45,6 +63,8 @@ iostream
 -
 AVL.h
 /home/mark/programming/minetrees/AVL.h
+AVL_Node.h
+/home/mark/programming/minetrees/AVL_Node.h
 Red_Black_Tree.h
 /home/mark/programming/minetrees/Red_Black_Tree.h
 iostream
