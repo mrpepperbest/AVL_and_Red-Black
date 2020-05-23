@@ -75,12 +75,6 @@ void remove_minimal(){
      Node<T>* FIND_NODE(T data);                    //search with key
      void INSERT(T data);                           //insertion
      void DELETE(T data);                           //deleting
-//interface tests
-     void TESTING_INSERT(int n);
-     void TESTING_DELETING(int n);
-     void TESTING_MAX_ELEMENT(int n);
-     void TESTING_MIN_ELEMENT(int n);
-     void TESTING_FINDING_ELEMENT(int n);
 };
 //methods realising
 //moderating funcs
@@ -233,11 +227,5 @@ template<typename T> void AVL<T>::INSERT(T data){
 template<typename T> void AVL<T>::DELETE(T data){
     this->remove_element(data);
 };                           //deleting
-//testing
-template<typename T> void AVL<T>::TESTING_INSERT(int n){};
-template<typename T> void AVL<T>::TESTING_DELETING(int n){};
-template<typename T> void AVL<T>::TESTING_MAX_ELEMENT(int n){};
-template<typename T> void AVL<T>::TESTING_MIN_ELEMENT(int n){};
-template<typename T> void AVL<T>::TESTING_FINDING_ELEMENT(int n){};
 
 #endif //AVL_TREE_AVL_H

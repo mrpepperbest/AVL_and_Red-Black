@@ -42,7 +42,13 @@ utility
 algorithm
 -
 
+/home/mark/programming/minetrees/Timer.h
+chrono
+-
+
 /home/mark/programming/minetrees/Tree.h
+Timer.h
+/home/mark/programming/minetrees/Timer.h
 AVL_Node.h
 /home/mark/programming/minetrees/AVL_Node.h
 iostream

@@ -3,6 +3,7 @@
 
 CMakeFiles/AVL_and_Red-Black.dir/main.cpp.o: ../AVL.h
 CMakeFiles/AVL_and_Red-Black.dir/main.cpp.o: ../AVL_Node.h
+CMakeFiles/AVL_and_Red-Black.dir/main.cpp.o: ../Timer.h
 CMakeFiles/AVL_and_Red-Black.dir/main.cpp.o: ../Tree.h
 CMakeFiles/AVL_and_Red-Black.dir/main.cpp.o: ../main.cpp
 
