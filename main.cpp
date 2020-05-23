@@ -27,6 +27,11 @@ cout<< a.search(228)<<endl;
 cout<< a.search(1)<<endl;
 cout<< a;
 cout<< b;
-
+//interface check
+a.INSERT(15);
+a.FIND_MIN_ELEMENT();
+a.FIND_MAX_ELEMENT();
+a.FIND_NODE(322);
+a.DELETE(322);
 return 0;
 }

@@ -2,6 +2,7 @@
 #ifndef AVL_TREE_AVL_H
 #define AVL_TREE_AVL_H
 //initial libs
+#include "Tree.h"
 #include <iostream>
 #include "AVL_Node.h"
 #include <cmath>
@@ -14,7 +15,7 @@
 using namespace std;
 //Tree body
 template <typename T>
-class AVL {
+class AVL: public Tree<T>{
 //tree items
 private:
     Node<T> *head;
@@ -68,13 +69,25 @@ void remove_element(const vector<T> a);             //removing mass of elements
 void remove_minimal(){
     head=remove_min(head);
 };                         //removing minimal
+//interface methods;
+     T FIND_MIN_ELEMENT();                          //minimal element
+     T FIND_MAX_ELEMENT();                          //maximal element
+     Node<T>* FIND_NODE(T data);                    //search with key
+     void INSERT(T data);                           //insertion
+     void DELETE(T data);                           //deleting
+//interface tests
+     void TESTING_INSERT(int n);
+     void TESTING_DELETING(int n);
+     void TESTING_MAX_ELEMENT(int n);
+     void TESTING_MIN_ELEMENT(int n);
+     void TESTING_FINDING_ELEMENT(int n);
 };
 //methods realising
 //moderating funcs
 template<typename T> void AVL<T>::insert(const T a){
 head=AVL_TREE_NODE_H::insert(head,a);
 size++;
-};                  //inserting 1 element
+}; //inserting 1 element
 template<typename T> void AVL<T>::insert(const vector<T> a){
     for(unsigned int i=0;i<a.size();++i) {
         this->insert(a[i]);
@@ -102,15 +115,12 @@ template<typename T> unsigned int AVL<T>::amount(){
     return size;
 };                   //showing amount of elements
 //operator realisation
-//help-func
-
-//operators
 //operators
 template<typename T> ostream& operator <<(ostream& os,AVL<T>& a){
 if(a.show_data())
     os<<*a.show_data();
 return os;
-}; //output
+};           //output
 /**
 template <typename T>
 class AVL{
@@ -184,4 +194,50 @@ ostream& operator <<(ostream& os,AVL& a){
     return os;
 };
 **/
+//interface methods realising
+template<typename T> T AVL<T>::FIND_MIN_ELEMENT(){
+    Node<T> *current = head;
+    while(current->left!= nullptr)
+    {
+        current=current->left;
+    }
+    cout << "Minimal element in the tree = " << current->key << endl;
+    return current->key;
+};                          //minimal element
+template<typename T> T AVL<T>::FIND_MAX_ELEMENT(){
+    Node<T> *current = head;
+    while(current->right!=nullptr)
+    {
+        current=current->right;
+    }
+    cout << "Maximal element in the tree = " << current->key << endl;
+    return current->key;
+};                          //maximal element
+template<typename T> Node<T>* AVL<T>::FIND_NODE(T data){
+    Node<T> *current = head;
+    while (current != nullptr)
+        if (data == current->key) {
+            cout << "There is an element = " << data << " in the tree"<<endl;
+            return (current);
+        } else if (data < current->key) {
+            current = current->left;
+        } else {
+            current = current->right;
+        }
+    cout << "There is no such element"<<endl;
+    return nullptr;
+};                    //search with key
+template<typename T> void AVL<T>::INSERT(T data){
+    this->insert(data);
+};                           //insertion
+template<typename T> void AVL<T>::DELETE(T data){
+    this->remove_element(data);
+};                           //deleting
+//testing
+template<typename T> void AVL<T>::TESTING_INSERT(int n){};
+template<typename T> void AVL<T>::TESTING_DELETING(int n){};
+template<typename T> void AVL<T>::TESTING_MAX_ELEMENT(int n){};
+template<typename T> void AVL<T>::TESTING_MIN_ELEMENT(int n){};
+template<typename T> void AVL<T>::TESTING_FINDING_ELEMENT(int n){};
+
 #endif //AVL_TREE_AVL_H
