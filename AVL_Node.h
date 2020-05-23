@@ -41,8 +41,8 @@ template <typename T> Node<T>* big_rotate_l(Node<T>* a);          //big left rot
 template <typename T> Node<T>* balance(Node<T>* a);
 //formatting funcs
 template <typename T> Node<T>* remove_min(Node<T>* a);            //deleting minimal
-template <typename T> Node<T>* insert(Node<T>* a, const int b);   //adding element
-template <typename T> Node<T>* remove(Node<T>* a, const int b);   //deleting element
+template <typename T> Node<T>* insert(Node<T>* a, const T b);   //adding element
+template <typename T> Node<T>* remove(Node<T>* a, const T b);   //deleting element
 
 
 //realisation

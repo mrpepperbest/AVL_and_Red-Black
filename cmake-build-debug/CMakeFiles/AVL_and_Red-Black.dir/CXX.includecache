@@ -7,10 +7,14 @@
 #IncludeRegexTransform: 
 
 /home/mark/programming/minetrees/AVL.h
+Tree.h
+/home/mark/programming/minetrees/Tree.h
 iostream
 -
 AVL_Node.h
 /home/mark/programming/minetrees/AVL_Node.h
+cmath
+-
 iostream
 -
 memory
@@ -54,6 +58,22 @@ cstdarg
 bits/unique_ptr.h
 -
 vector
+-
+algorithm
+-
+
+/home/mark/programming/minetrees/Tree.h
+AVL_Node.h
+/home/mark/programming/minetrees/AVL_Node.h
+iostream
+-
+memory
+-
+vector
+-
+functional
+-
+utility
 -
 algorithm
 -

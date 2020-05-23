@@ -1,6 +1,7 @@
 
 #ifndef TREE_H
 #define TREE_H
+#include "AVL_Node.h"
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -8,15 +9,6 @@
 #include <utility>
 #include <algorithm>
 using namespace std;
-//node struct
-template <typename T>
-struct Node
-{
-    T data;
-    int s;
-    Node* l;
-    Node* r;
-};
 template <typename T>
 class Tree {
 public:

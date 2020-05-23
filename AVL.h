@@ -28,7 +28,7 @@ static void destroy_node(Node<T>* node){
         destroy_node(node->right);
         delete node;
     }
-}
+};
 //
 public:
 //constructors
@@ -74,7 +74,7 @@ T FIND_MIN_ELEMENT();                                       //minimal element
 T FIND_MAX_ELEMENT();                                       //maximal element
 Node<T>* FIND_NODE(T data);                                 //search with key
 static Node<T>* INSERT(Node<T>* p, T data);                 //insertion
-static Node<T>* DELETE(Node<T>* nd, int data);              //deleting
+static Node<T>* DELETE(Node<T>* nd, T data);              //deleting
 //interface tests
 void TESTING_INSERT(int n);
 void TESTING_DELETING(int n);
@@ -142,13 +142,12 @@ template<typename T> ostream& operator <<(ostream& os,AVL<T>& a){
     delete i;
     return os;
 }; //output
-};
 //interface methods
 template<typename T> T AVL<T>::FIND_MIN_ELEMENT(){};                                       //minimal element
 template<typename T> T AVL<T>::FIND_MAX_ELEMENT(){};                                       //maximal element
 template<typename T> Node<T>* AVL<T>::FIND_NODE(T data){};                                 //search with key
 template<typename T> static Node<T>* AVL<T>::INSERT(Node<T>* p, T data){};                 //insertion
-template<typename T> static Node<T>* AVL<T>::DELETE(Node<T>* nd, int data){};              //deleting
+template<typename T> static Node<T>* AVL<T>::DELETE(Node<T>* nd, T data){};              //deleting
 //interface tests
 template<typename T> void AVL<T>::TESTING_INSERT(int n){};
 template<typename T> void AVL<T>::TESTING_DELETING(int n){};
