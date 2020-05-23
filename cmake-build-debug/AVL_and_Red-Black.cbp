@@ -87,6 +87,9 @@
 		<Unit filename="/home/mark/programming/minetrees/Red_Black_Tree.h">
 			<Option target="AVL_and_Red-Black"/>
 		</Unit>
+		<Unit filename="/home/mark/programming/minetrees/Tree.h">
+			<Option target="AVL_and_Red-Black"/>
+		</Unit>
 		<Unit filename="/home/mark/programming/minetrees/main.cpp">
 			<Option target="AVL_and_Red-Black"/>
 		</Unit>

@@ -27,6 +27,8 @@ a.remove_element({1,2,3});
 cout<< a.amount()<<endl;
 cout<< a.search(228)<<endl;
 cout<< a.search(1)<<endl;
+cout<< a;
+cout<< b;
 
 return 0;
 }

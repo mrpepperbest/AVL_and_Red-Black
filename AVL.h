@@ -2,6 +2,7 @@
 #ifndef AVL_TREE_AVL_H
 #define AVL_TREE_AVL_H
 //initial libs
+#include "Tree.h"
 #include <iostream>
 #include "AVL_Node.h"
 #include <iostream>
@@ -13,7 +14,7 @@
 using namespace std;
 //Tree body
 template <typename T>
-class AVL {
+class AVL: public Tree<T> {
 //tree items
 private:
     Node<T> *head;
@@ -64,6 +65,18 @@ void insert(T a);                                   //inserting 1 element
 void insert(const vector<T> a);                     //inserting mass of elements
 void remove_element(const T a);                     //removing 1 element
 void remove_element(const vector<T> a);             //removing mass of elements
+//interface methods;
+T FIND_MIN_ELEMENT();                                       //minimal element
+T FIND_MAX_ELEMENT();                                       //maximal element
+Node<T>* FIND_NODE(T data);                                 //search with key
+static Node<T>* INSERT(Node<T>* p, T data);                 //insertion
+static Node<T>* DELETE(Node<T>* nd, int data);              //deleting
+//interface tests
+void TESTING_INSERT(int n);
+void TESTING_DELETING(int n);
+void TESTING_MAX_ELEMENT(int n);
+void TESTING_MIN_ELEMENT(int n);
+void TESTING_FINDING_ELEMENT(int n);
 };
 //methods realising
 //moderating funcs
@@ -107,6 +120,18 @@ template<typename T> ostream& operator <<(ostream& os,AVL<T>& a){
     os<<*a.show_data();
     return os;
 };
+//interface methods
+template<typename T> T AVL<T>::FIND_MIN_ELEMENT(){};                                       //minimal element
+template<typename T> T AVL<T>::FIND_MAX_ELEMENT(){};                                       //maximal element
+template<typename T> Node<T>* AVL<T>::FIND_NODE(T data){};                                 //search with key
+template<typename T> static Node<T>* AVL<T>::INSERT(Node<T>* p, T data){};                 //insertion
+template<typename T> static Node<T>* AVL<T>::DELETE(Node<T>* nd, int data){};              //deleting
+//interface tests
+template<typename T> void AVL<T>::TESTING_INSERT(int n){};
+template<typename T> void AVL<T>::TESTING_DELETING(int n){};
+template<typename T> void AVL<T>::TESTING_MAX_ELEMENT(int n){};
+template<typename T> void AVL<T>::TESTING_MIN_ELEMENT(int n){};
+template<typename T> void AVL<T>::TESTING_FINDING_ELEMENT(int n){};
 /**
 template <typename T>
 class AVL{
