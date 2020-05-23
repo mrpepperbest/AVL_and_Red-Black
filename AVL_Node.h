@@ -185,24 +185,6 @@ template <typename T> Node<T>* remove(Node<T>* a, const int b){
     a = balance(a);
     return a;
 }  //deleting element
-//operators
-template <typename T> ostream& operator<<(ostream &os, const Node<T>& a){
-    Node<T>* b=new Node(a);
-    Node<T>* i;
-    while(b->left!=nullptr){
-        i=find_min(b->left);
-        cout<< "| "<< i->key <<" | ";
-        b->left=remove_min(b->left);
-    }
-    cout<<"( "<<b->key<<" )";
-    while(b->right!=nullptr){
-        i=find_min(b->right);
-        cout<< " | "<< i->key <<" |";
-        b->right=remove_min(b->right);
-    }
-    delete b,i;
-    return os;
-} //output
 /**
 struct Node {
     //main items

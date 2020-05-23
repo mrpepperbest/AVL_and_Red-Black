@@ -5,6 +5,7 @@
 #include "Tree.h"
 #include <iostream>
 #include "AVL_Node.h"
+#include <cmath>
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -65,6 +66,9 @@ void insert(T a);                                   //inserting 1 element
 void insert(const vector<T> a);                     //inserting mass of elements
 void remove_element(const T a);                     //removing 1 element
 void remove_element(const vector<T> a);             //removing mass of elements
+void remove_minimal(){
+    head=remove_min(head);
+};                         //removing minimal
 //interface methods;
 T FIND_MIN_ELEMENT();                                       //minimal element
 T FIND_MAX_ELEMENT();                                       //maximal element
@@ -110,15 +114,34 @@ template<typename T> bool const AVL<T>::search(const int a){
 template<typename T> unsigned int AVL<T>::amount(){
     return size;
 };                   //showing amount of elements
+//operator realisation
+//help-func
+
 //operators
 template<typename T> ostream& operator <<(ostream& os,AVL<T>& a){
-    if(a.show_data()==nullptr)
-    {
-        os<< "empty";
+    AVL<T>* a_=new AVL(a);
+    Node<T>* b=a_->show_data();
+    Node<T>* i;
+    if(b==nullptr){
+        cout<< "empty";
+        delete i;
         return os;
     }
-    os<<*a.show_data();
+    while(b->left!=nullptr){
+        i=find_min(b->left);
+        cout<< "| "<< i->key <<" | ";
+        b->left=remove_min(b->left);
+    }
+    cout<<"( "<<b->key<<" )";
+    while(b->right!=nullptr){
+        i=find_min(b->right);
+        cout<< " | "<< i->key <<" |";
+        b->right=remove_min(b->right);
+    }
+    delete a_;
+    delete i;
     return os;
+}; //output
 };
 //interface methods
 template<typename T> T AVL<T>::FIND_MIN_ELEMENT(){};                                       //minimal element
