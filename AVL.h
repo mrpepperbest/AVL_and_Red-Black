@@ -2,7 +2,6 @@
 #ifndef AVL_TREE_AVL_H
 #define AVL_TREE_AVL_H
 //initial libs
-#include "Tree.h"
 #include <iostream>
 #include "AVL_Node.h"
 #include <cmath>
@@ -15,7 +14,7 @@
 using namespace std;
 //Tree body
 template <typename T>
-class AVL: public Tree<T> {
+class AVL {
 //tree items
 private:
     Node<T> *head;
@@ -28,7 +27,7 @@ static void destroy_node(Node<T>* node){
         destroy_node(node->right);
         delete node;
     }
-};
+}
 //
 public:
 //constructors
@@ -69,18 +68,6 @@ void remove_element(const vector<T> a);             //removing mass of elements
 void remove_minimal(){
     head=remove_min(head);
 };                         //removing minimal
-//interface methods;
-T FIND_MIN_ELEMENT();                                       //minimal element
-T FIND_MAX_ELEMENT();                                       //maximal element
-Node<T>* FIND_NODE(T data);                                 //search with key
-static Node<T>* INSERT(Node<T>* p, T data);                 //insertion
-static Node<T>* DELETE(Node<T>* nd, T data);              //deleting
-//interface tests
-void TESTING_INSERT(int n);
-void TESTING_DELETING(int n);
-void TESTING_MAX_ELEMENT(int n);
-void TESTING_MIN_ELEMENT(int n);
-void TESTING_FINDING_ELEMENT(int n);
 };
 //methods realising
 //moderating funcs
@@ -118,42 +105,12 @@ template<typename T> unsigned int AVL<T>::amount(){
 //help-func
 
 //operators
+//operators
 template<typename T> ostream& operator <<(ostream& os,AVL<T>& a){
-    AVL<T>* a_=new AVL(a);
-    Node<T>* b=a_->show_data();
-    Node<T>* i;
-    if(b==nullptr){
-        cout<< "empty";
-        delete i;
-        return os;
-    }
-    while(b->left!=nullptr){
-        i=find_min(b->left);
-        cout<< "| "<< i->key <<" | ";
-        b->left=remove_min(b->left);
-    }
-    cout<<"( "<<b->key<<" )";
-    while(b->right!=nullptr){
-        i=find_min(b->right);
-        cout<< " | "<< i->key <<" |";
-        b->right=remove_min(b->right);
-    }
-    delete a_;
-    delete i;
-    return os;
+if(a.show_data())
+    os<<*a.show_data();
+return os;
 }; //output
-//interface methods
-template<typename T> T AVL<T>::FIND_MIN_ELEMENT(){};                                       //minimal element
-template<typename T> T AVL<T>::FIND_MAX_ELEMENT(){};                                       //maximal element
-template<typename T> Node<T>* AVL<T>::FIND_NODE(T data){};                                 //search with key
-template<typename T> static Node<T>* AVL<T>::INSERT(Node<T>* p, T data){};                 //insertion
-template<typename T> static Node<T>* AVL<T>::DELETE(Node<T>* nd, T data){};              //deleting
-//interface tests
-template<typename T> void AVL<T>::TESTING_INSERT(int n){};
-template<typename T> void AVL<T>::TESTING_DELETING(int n){};
-template<typename T> void AVL<T>::TESTING_MAX_ELEMENT(int n){};
-template<typename T> void AVL<T>::TESTING_MIN_ELEMENT(int n){};
-template<typename T> void AVL<T>::TESTING_FINDING_ELEMENT(int n){};
 /**
 template <typename T>
 class AVL{

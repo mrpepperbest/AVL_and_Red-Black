@@ -141,7 +141,7 @@ template <typename T> Node<T>* remove_min(Node<T>* a){
     a->left=remove_min(a->left);
     return balance(a);
 }           //deleting minimal
-template <typename T> Node<T>* insert(Node<T>* a, const int b){
+template <typename T> Node<T>* insert(Node<T>* a, const T b){
     if(a==nullptr){
         a=new Node(b);
         return a;
@@ -154,7 +154,7 @@ template <typename T> Node<T>* insert(Node<T>* a, const int b){
     }
     return a=balance(a);
 }  //adding element
-template <typename T> Node<T>* remove(Node<T>* a, const int b){
+template <typename T> Node<T>* remove(Node<T>* a, const T b){
     if(a==nullptr){
         return nullptr;
     }
@@ -185,6 +185,17 @@ template <typename T> Node<T>* remove(Node<T>* a, const int b){
     a = balance(a);
     return a;
 }  //deleting element
+//operator
+template <typename T> ostream &operator<<(ostream& os, Node<T>& node) //output
+{
+    if (node.left)
+        os << *(node.left);
+    os << (node.key) << endl;
+    if (node.right)
+        os << *(node.right);
+
+    return os;
+}
 /**
 struct Node {
     //main items
