@@ -49,6 +49,8 @@ chrono
 /home/mark/programming/minetrees/Tree.h
 Timer.h
 /home/mark/programming/minetrees/Timer.h
+fstream
+-
 AVL_Node.h
 /home/mark/programming/minetrees/AVL_Node.h
 iostream
@@ -62,6 +64,8 @@ functional
 utility
 -
 algorithm
+-
+iomanip
 -
 
 /home/mark/programming/minetrees/main.cpp
